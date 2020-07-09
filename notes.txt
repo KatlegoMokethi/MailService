@@ -1,0 +1,9 @@
+1. Have an ASP.NET Core project
+2. Add the MailRequest Model (To, Subject, Body, [IformFile]Attachements).
+3. Configure MailSettings (Mail, Name, Password, Host, Port) in appsettings.json
+   Add MailSettings.cs class in Settings directory.
+   Add "services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));" in Startup.cs ConfigureServices() 
+4. Add a Service Layer to Send Mails [a MailService.cs implementing IMailService with SendEmailAsync(MailRequest) method] 
+   Add "services.AddTransient<IMailService, Services.MailService>();" in Startup.cs ConfigureServices() 
+   Add the controller method in MailController.
+5. Send the Mail
